@@ -8,10 +8,13 @@ int main(int argc, char *argv[]) {
 
   if (program.is_open())
   {
-    char program_instruction;
+    char program_instruction; // TODO: use byte?
     program.read(&program_instruction, 1);
-    std::cout << program_instruction << std::endl;
 
+    // figure out the instruction being used
+    if (program_instruction == 0) {
+      std::cout << "NOP" << std::endl;
+    }
   } else {
     std::cout << "Failed to open the filename supplied." << std::endl; // TODO, more helpful error (e.g., file not found)
     return 1;
